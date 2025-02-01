@@ -41,7 +41,7 @@ public class UrlShorteningController {
     }
 
     @GetMapping("/{shortLink}")
-    public ResponseEntity<?> redirectToOriginalUrl(@PathVariable String shortLink) throws IOException {
+    public ResponseEntity<?> redirectToOriginalUrl(@PathVariable String shortLink, HttpServletResponse response) throws IOException {
         if(StringUtils.isEmpty(shortLink)){
             UrlErrorResponseDto urlErrorResponseDto = new UrlErrorResponseDto();
             urlErrorResponseDto.setError("Invalid Url");
